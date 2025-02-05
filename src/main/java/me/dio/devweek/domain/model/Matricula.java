@@ -1,12 +1,27 @@
-package me.dio.devweek.model;
+package me.dio.devweek.domain.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity
 class Matricula {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
     private Turma turma;
+
     private String dataMatricula;
     private String ano;
     private String semestre;
+
+    @Column(precision = 2, scale = 1)
     private String nota;
 
     // Getters e Setters

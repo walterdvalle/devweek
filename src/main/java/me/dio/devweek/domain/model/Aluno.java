@@ -1,14 +1,36 @@
-package me.dio.devweek.model;
+package me.dio.devweek.domain.model;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 import java.util.List;
 
+@Entity
 public class Aluno {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true, nullable = false)
     private String login;
+
+    @Column(nullable = false)
     private String nome;
+
+    @Column(unique = true, nullable = false)
     private String numMatricula;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Curso curso;
+
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Matricula> matriculas;
 
     // Getters e Setters
