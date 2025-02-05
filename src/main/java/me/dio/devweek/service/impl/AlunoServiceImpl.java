@@ -1,5 +1,7 @@
 package me.dio.devweek.service.impl;
 
+import me.dio.devweek.domain.dto.AlunoDTO;
+import me.dio.devweek.domain.dto.DevweekMapper;
 import me.dio.devweek.domain.model.Aluno;
 import me.dio.devweek.domain.repository.AlunoRepository;
 import me.dio.devweek.service.AlunoService;
@@ -17,19 +19,20 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     @Override
-    public Aluno findById(Long id) {
-        return alunoRepository.findById(id).orElseThrow(NoSuchElementException::new);
+    public AlunoDTO findById(Long id) {
+        Aluno aluno = alunoRepository.findById(id).orElseThrow(NoSuchElementException::new);
+        return DevweekMapper.INSTANCE.alunoToAlunoDTO(aluno);
     }
 
     @Override
-    public Aluno create(Aluno aluno) throws IllegalAccessException {
-        if (alunoRepository.existsById(aluno.getId())) {
+    public AlunoDTO create(AlunoDTO alunoDTO) throws IllegalAccessException {
+        if (alunoDTO.getId() != null && alunoRepository.existsById(alunoDTO.getId())) {
             throw new IllegalAccessException("Já existe uma aluno com esse id");
         }
-        if (alunoRepository.existsByNumMatricula(aluno.getNumMatricula())) {
-            throw new IllegalAccessException("Já existe uma aluno com essa matrícula");
+        if (alunoRepository.existsByNumMatricula(alunoDTO.getNumMatricula())) {
+            throw new IllegalAccessException("Já existe um aluno com essa matrícula");
         }
-        return alunoRepository.save(aluno);
+        Aluno aluno = DevweekMapper.INSTANCE.alunoDTOToAluno(alunoDTO);
+        return DevweekMapper.INSTANCE.alunoToAlunoDTO(alunoRepository.save(aluno));
     }
-
  }

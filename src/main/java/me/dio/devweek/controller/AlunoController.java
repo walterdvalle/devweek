@@ -1,6 +1,6 @@
 package me.dio.devweek.controller;
 
-import me.dio.devweek.domain.model.Aluno;
+import me.dio.devweek.domain.dto.AlunoDTO;
 import me.dio.devweek.service.AlunoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,12 +24,12 @@ public class AlunoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Aluno> findById(@PathVariable Long id) {
+    public ResponseEntity<AlunoDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok(alunoService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Aluno> findById(@RequestBody Aluno aluno) throws IllegalAccessException {
+    public ResponseEntity<AlunoDTO> findById(@RequestBody AlunoDTO aluno) throws IllegalAccessException {
         var novoAluno = alunoService.create(aluno);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()

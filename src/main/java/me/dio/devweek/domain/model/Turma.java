@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-class Turma {
+public class Turma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

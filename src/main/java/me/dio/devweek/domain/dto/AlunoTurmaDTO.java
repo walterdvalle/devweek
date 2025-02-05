@@ -1,12 +1,15 @@
 package me.dio.devweek.domain.dto;
 
-public class AlunoDTO {
+import java.util.List;
+
+public class AlunoTurmaDTO {
 
     private Long id;
     private String login;
     private String nome;
     private String numMatricula;
     private CursoDTO curso;
+    private List<MatriculaDTO> matriculas;
 
     public Long getId() {
         return id;
@@ -46,5 +49,13 @@ public class AlunoDTO {
 
     public void setCurso(CursoDTO curso) {
         this.curso = curso;
+    }
+
+    public List<MatriculaDTO> getMatriculas() {
+        return matriculas;
+    }
+
+    public void setMatriculas(List<MatriculaDTO> matriculas) {
+        this.matriculas = matriculas;
     }
 }

@@ -1,11 +1,11 @@
 package me.dio.devweek.service;
 
-import me.dio.devweek.domain.model.Aluno;
+import me.dio.devweek.domain.dto.AlunoDTO;
 
 public interface AlunoService {
 
-    Aluno findById(Long id);
+    AlunoDTO findById(Long id);
 
-    Aluno create(Aluno aluno) throws IllegalAccessException;
+    AlunoDTO create(AlunoDTO alunoDto) throws IllegalAccessException;
 
 }

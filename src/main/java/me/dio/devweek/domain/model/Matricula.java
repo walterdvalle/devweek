@@ -10,7 +10,7 @@ import jakarta.persistence.OneToOne;
 import java.time.LocalDate;
 
 @Entity
-class Matricula {
+public class Matricula {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ class Matricula {
     private Integer ano;
     private Integer semestre;
 
-    @Column(precision = 2, scale = 1)
+    @Column(precision = 2)
     private Double nota;
 
     // Getters e Setters
