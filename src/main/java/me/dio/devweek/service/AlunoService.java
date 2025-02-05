@@ -4,8 +4,8 @@ import me.dio.devweek.domain.model.Aluno;
 
 public interface AlunoService {
 
-    public Aluno findById(Long id);
+    Aluno findById(Long id);
 
-    public Aluno create(Aluno aluno);
+    Aluno create(Aluno aluno) throws IllegalAccessException;
 
 }

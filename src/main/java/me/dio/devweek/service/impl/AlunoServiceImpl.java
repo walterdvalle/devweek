@@ -18,7 +18,7 @@ public class AlunoServiceImpl implements AlunoService {
 
     @Override
     public Aluno findById(Long id) {
-        return alunoRepository.findById(id).orElseThrow(NoSuchElementException);
+        return alunoRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class AlunoServiceImpl implements AlunoService {
         if (alunoRepository.existsById(aluno.getId())) {
             throw new IllegalAccessException("Já existe uma aluno com esse id");
         }
-        if (alunoRepository.existsByMatricula(aluno.getMatriculas())) {
+        if (alunoRepository.existsByNumMatricula(aluno.getNumMatricula())) {
             throw new IllegalAccessException("Já existe uma aluno com essa matrícula");
         }
         return alunoRepository.save(aluno);
