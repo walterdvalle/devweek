@@ -3,6 +3,8 @@ package me.dio.devweek.model;
 import java.util.List;
 
 public class Aluno {
+
+    private Long id;
     private String login;
     private String nome;
     private String numMatricula;
@@ -10,6 +12,13 @@ public class Aluno {
     private List<Matricula> matriculas;
 
     // Getters e Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getLogin() {
         return login;
     }

@@ -1,6 +1,8 @@
 package me.dio.devweek.model;
 
 class Matricula {
+
+    private Long id;
     private Turma turma;
     private String dataMatricula;
     private String ano;
@@ -8,6 +10,14 @@ class Matricula {
     private String nota;
 
     // Getters e Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Turma getTurma() {
         return turma;
     }
