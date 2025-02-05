@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
+import java.time.LocalDate;
+
 @Entity
 class Matricula {
 
@@ -17,9 +19,9 @@ class Matricula {
     @OneToOne
     private Turma turma;
 
-    private String dataMatricula;
-    private String ano;
-    private String semestre;
+    private LocalDate dataMatricula;
+    private Integer ano;
+    private Integer semestre;
 
     @Column(precision = 2, scale = 1)
     private String nota;
@@ -41,27 +43,27 @@ class Matricula {
         this.turma = turma;
     }
 
-    public String getDataMatricula() {
+    public LocalDate getDataMatricula() {
         return dataMatricula;
     }
 
-    public void setDataMatricula(String dataMatricula) {
+    public void setDataMatricula(LocalDate dataMatricula) {
         this.dataMatricula = dataMatricula;
     }
 
-    public String getAno() {
+    public Integer getAno() {
         return ano;
     }
 
-    public void setAno(String ano) {
+    public void setAno(Integer ano) {
         this.ano = ano;
     }
 
-    public String getSemestre() {
+    public Integer getSemestre() {
         return semestre;
     }
 
-    public void setSemestre(String semestre) {
+    public void setSemestre(Integer semestre) {
         this.semestre = semestre;
     }
 
