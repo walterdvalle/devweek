@@ -1,32 +1,16 @@
-package me.dio.devweek.domain.model;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+package me.dio.devweek.domain.dto;
 
 import java.time.LocalDate;
 
-@Entity
-class Matricula {
+public class MatriculaDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @OneToOne
-    private Turma turma;
-
+    private TurmaDTO turma;
     private LocalDate dataMatricula;
     private Integer ano;
     private Integer semestre;
-
-    @Column(precision = 2, scale = 1)
     private Double nota;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -35,11 +19,11 @@ class Matricula {
         this.id = id;
     }
 
-    public Turma getTurma() {
+    public TurmaDTO getTurma() {
         return turma;
     }
 
-    public void setTurma(Turma turma) {
+    public void setTurma(TurmaDTO turma) {
         this.turma = turma;
     }
 
