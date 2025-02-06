@@ -27,7 +27,7 @@ public class Aluno {
     @Column(unique = true, nullable = false)
     private String numMatricula;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Curso curso;
 
     @OneToMany(cascade = CascadeType.ALL)
