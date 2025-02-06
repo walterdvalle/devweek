@@ -40,6 +40,9 @@ public class AlunoServiceImpl implements AlunoService {
         if (alunoRepository.existsByLogin(alunoDTO.getLogin())) {
             throw new IllegalArgumentException("Já existe um aluno com esse login");
         }
+        if (alunoDTO.getCurso().getId() == null && cursoRepository.existsBySigla(alunoDTO.getCurso().getSigla())) {
+            throw new IllegalArgumentException("Já existe um curso com essa sigla");
+        }
         Aluno aluno = DevWeekMapper.INSTANCE.alunoDTOToAluno(alunoDTO);
         aluno.setCurso(cursoRepository.save(DevWeekMapper.INSTANCE.cursoDTOToCurso(alunoDTO.getCurso())));
         return DevWeekMapper.INSTANCE.alunoToAlunoDTO(alunoRepository.save(aluno));

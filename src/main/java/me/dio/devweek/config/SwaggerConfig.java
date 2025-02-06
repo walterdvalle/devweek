@@ -10,19 +10,19 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-//@Configuration
+@Configuration
 public class SwaggerConfig {
 
     @Bean
     public OpenAPI myOpenAPI() {
-        Server server = new Server();
-        server.setUrl("https://www.walter.br/escola");
-        server.setDescription("Server URL in Production environment");
+        //Server server = new Server();
+        //server.setUrl("https://www.walter.br/escola");
+        //server.setDescription("Server URL in Production environment");
 
         Contact contact = new Contact();
         contact.setEmail("wevl@walter.br");
         contact.setName("Walter");
-        contact.setUrl("https://www.walter.br");
+        //contact.setUrl("https://www.walter.br");
 
         License mitLicense = new License()
                 .name("MIT License")
@@ -32,11 +32,12 @@ public class SwaggerConfig {
                 .title("Gestão Escolar")
                 .version("1.0")
                 .contact(contact)
-                .description("API backend do sistema de gestãioo escolar.")
+                .description("API backend do sistema de gestão escolar.")
                 .termsOfService("https://www.walter.br")
                 .license(mitLicense);
 
         return new OpenAPI()
                 .info(info)
-                .servers(List.of(server));
+                //.servers(List.of(server))
+                ;
     }}
