@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 @RestControllerAdvice
 public class DevWeekExceptionHandler {
 
-    private final Logger logger = LoggerFactory.getLogger(DevWeekExceptionHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(DevWeekExceptionHandler.class);
 
     @ExceptionHandler(value = {IllegalArgumentException.class})
     public ResponseEntity<String> handle(IllegalArgumentException exception) {
