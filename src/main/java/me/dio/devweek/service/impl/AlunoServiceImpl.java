@@ -58,7 +58,7 @@ public class AlunoServiceImpl implements AlunoService {
                 .map( aluno -> {
                     DevWeekMapper.INSTANCE.updateAlunoFromDTO(alunoDTO, aluno);
                     alunoRepository.save(aluno);
-                    return "";
+                    return aluno;
                 }).orElseThrow(NoSuchElementException::new);
     }
 
@@ -67,7 +67,7 @@ public class AlunoServiceImpl implements AlunoService {
         alunoRepository.findById(id)
                 .map( aluno -> {
                     alunoRepository.delete(aluno);
-                    return "";
+                    return aluno;
                 }).orElseThrow(NoSuchElementException::new);
     }
 }
