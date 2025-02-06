@@ -27,7 +27,7 @@ public class DevWeekExceptionHandler {
     @ExceptionHandler(value = {Throwable.class})
     public ResponseEntity<String> handle(Throwable exception) {
         var message = "Erro insperado";
-        logger.error("{}: {}", message, exception.getMessage(), exception);
+        logger.error("{}: {} {}", message, exception.getClass().getName(), exception.getMessage(), exception);
         return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
