@@ -9,6 +9,6 @@ public interface AlunoService {
     AlunoDTO findById(Long id);
     AlunoDTO create(AlunoDTO alunoDTO);
     List<AlunoDTO> findAll();
-    AlunoDTO update(Long id, AlunoDTO alunoDTO);
-
+    void update(Long id, AlunoDTO alunoDTO);
+    void delete(Long id);
 }

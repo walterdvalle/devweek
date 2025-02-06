@@ -53,12 +53,21 @@ public class AlunoServiceImpl implements AlunoService {
     }
 
     @Override
-    public AlunoDTO update(Long id, AlunoDTO alunoDTO) {
-        return alunoRepository.findById(id)
+    public void update(Long id, AlunoDTO alunoDTO) {
+        alunoRepository.findById(id)
                 .map( aluno -> {
                     DevWeekMapper.INSTANCE.updateAlunoFromDTO(alunoDTO, aluno);
-                    Aluno salvo = alunoRepository.save(aluno);
-                    return DevWeekMapper.INSTANCE.alunoToAlunoDTO(salvo);
+                    alunoRepository.save(aluno);
+                    return "";
+                }).orElseThrow(NoSuchElementException::new);
+    }
+
+    @Override
+    public void delete(Long id) {
+        alunoRepository.findById(id)
+                .map( aluno -> {
+                    alunoRepository.delete(aluno);
+                    return "";
                 }).orElseThrow(NoSuchElementException::new);
     }
 }
